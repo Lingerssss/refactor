@@ -15,8 +15,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_1_when_the_Employee_type_is_Commissioned() {
         //given
-        Employee commissionedEmployee = new Employee();
-        commissionedEmployee.setType(EmployeeType.COMMISSIONED);
+        Employee commissionedEmployee = new Employee(EmployeeType.COMMISSIONED);
         //when
         int commissionedPay = employeeService.calculatePay(commissionedEmployee).getValue();
         //then
@@ -26,23 +25,21 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_10_when_the_Employee_type_is_hourly() {
         //given
-        Employee commissionedEmployee = new Employee();
-        commissionedEmployee.setType(EmployeeType.HOURLY);
+        Employee hourlyEmployee = new Employee(EmployeeType.HOURLY);
         //when
-        int commissionedPay = employeeService.calculatePay(commissionedEmployee).getValue();
+        int hourlyPay = employeeService.calculatePay(hourlyEmployee).getValue();
         //then
-        Assert.assertEquals(10, commissionedPay);
+        Assert.assertEquals(10, hourlyPay);
 
     }
 
     @Test
     public void should_return_100_when_the_Employee_type_is_hourly() {
         //given
-        Employee commissionedEmployee = new Employee();
-        commissionedEmployee.setType(EmployeeType.SALARIED);
+        Employee salariedEmployee = new Employee(EmployeeType.SALARIED);
         //when
-        int commissionedPay = employeeService.calculatePay(commissionedEmployee).getValue();
+        int salariedPay = employeeService.calculatePay(salariedEmployee).getValue();
         //then
-        Assert.assertEquals(100, commissionedPay);
+        Assert.assertEquals(100, salariedPay);
     }
 }

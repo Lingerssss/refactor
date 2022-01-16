@@ -17,7 +17,7 @@ public class EmployeeService {
             case SALARIED:
                 return calculateSalariedPay();
             default:
-                throw new InvalidEmployeeType(e.getType());
+                throw new InvalidEmployeeType();
         }
     }
 

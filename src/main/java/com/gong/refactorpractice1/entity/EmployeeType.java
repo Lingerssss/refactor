@@ -1,5 +1,5 @@
 package com.gong.refactorpractice1.entity;
 
 public enum EmployeeType {
-    COMMISSIONED,HOURLY,SALARIED
+    COMMISSIONED,HOURLY,SALARIED,WEEKLY
 }

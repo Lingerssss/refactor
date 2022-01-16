@@ -2,8 +2,11 @@ package com.gong.refactorpractice1;
 
 import com.gong.refactorpractice1.entity.Employee;
 import com.gong.refactorpractice1.entity.EmployeeType;
+import com.gong.refactorpractice1.exception.InvalidEmployeeType;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EmployeeServiceTest {
     private final EmployeeService employeeService;
@@ -41,5 +44,13 @@ public class EmployeeServiceTest {
         int salariedPay = employeeService.calculatePay(salariedEmployee).getValue();
         //then
         Assert.assertEquals(100, salariedPay);
+    }
+
+    @Test
+    public void should_throw_invalidEmployeeType_when_employee_type_is_invalid() {
+        //given
+        Employee noTypeEmployee = new Employee(EmployeeType.WEEKLY);
+        //when and then
+        assertThrows(InvalidEmployeeType.class,()->employeeService.calculatePay(noTypeEmployee));
     }
 }

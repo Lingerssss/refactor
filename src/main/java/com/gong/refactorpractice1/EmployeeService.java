@@ -2,13 +2,13 @@ package com.gong.refactorpractice1;
 
 
 import com.gong.refactorpractice1.entity.Employee;
-import com.gong.refactorpractice1.entity.Money;
+import com.gong.refactorpractice1.entity.Payment;
 import com.gong.refactorpractice1.exception.InvalidEmployeeType;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeService {
-    public Money calculatePay(Employee e) throws InvalidEmployeeType {
+    public Payment calculatePay(Employee e) throws InvalidEmployeeType {
         switch (e.getType()) {
             case COMMISSIONED:
                 return calculateCommissionedPay();
@@ -21,15 +21,15 @@ public class EmployeeService {
         }
     }
 
-    private Money calculateCommissionedPay() {
-        return new Money(1);
+    private Payment calculateCommissionedPay() {
+        return new Payment(1);
     }
 
-    private Money calculateHourlyPay() {
-        return new Money(10);
+    private Payment calculateHourlyPay() {
+        return new Payment(10);
     }
-    private Money calculateSalariedPay() {
-        return new Money(100);
+    private Payment calculateSalariedPay() {
+        return new Payment(100);
 
     }
 

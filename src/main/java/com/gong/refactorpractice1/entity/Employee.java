@@ -10,15 +10,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Employee {
+public abstract class Employee {
     private EmployeeType type;
-    public Employee(EmployeeType employeeType){
-        this.setType(employeeType);
-    }
 
-    public Payment calculatePay() {
-        return null;
-    }
+    public abstract Payment calculatePay();
 
     public static Employee of(EmployeeType type) {
         switch (type) {

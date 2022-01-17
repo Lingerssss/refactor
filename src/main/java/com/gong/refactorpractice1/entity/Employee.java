@@ -11,4 +11,8 @@ public class Employee {
     public Employee(EmployeeType employeeType){
         this.setType(employeeType);
     }
+
+    public Payment calculatePay() {
+        return null;
+    }
 }

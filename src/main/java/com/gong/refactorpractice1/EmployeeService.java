@@ -12,6 +12,7 @@ public class EmployeeService {
         switch (e.getType()) {
             case COMMISSIONED:
                 Employee e1 = new CommissionedEmployee();
+                e1.calculatePay();
                 return calculateCommissionedPay();
             case HOURLY:
                 return calculateHourlyPay();

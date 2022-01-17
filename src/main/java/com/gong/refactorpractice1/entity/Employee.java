@@ -20,7 +20,7 @@ public class Employee {
         return null;
     }
 
-    public Employee of(EmployeeType type) {
+    public static Employee of(EmployeeType type) {
         switch (type) {
             case COMMISSIONED:
                 return new CommissionedEmployee();

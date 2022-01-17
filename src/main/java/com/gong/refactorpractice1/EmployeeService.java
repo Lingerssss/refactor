@@ -22,10 +22,6 @@ public class EmployeeService {
         }
     }
 
-    private Payment calculateCommissionedPay() {
-        return new Payment(1);
-    }
-
     private Payment calculateHourlyPay() {
         return new Payment(10);
     }

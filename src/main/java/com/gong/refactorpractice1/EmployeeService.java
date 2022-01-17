@@ -13,15 +13,16 @@ public class EmployeeService {
         switch (e.getType()) {
             case COMMISSIONED:
                 em = new CommissionedEmployee();
-                return em.calculatePay();
+                break;
             case HOURLY:
                 em = new HourlyEmployee();
-                return em.calculatePay();
+                break;
             case SALARIED:
                 em = new SalariedEmployee();
-                return em.calculatePay();
+                break;
             default:
                 throw new InvalidEmployeeType();
         }
+        return em.calculatePay();
     }
 }

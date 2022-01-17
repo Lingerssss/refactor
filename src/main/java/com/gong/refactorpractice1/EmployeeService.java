@@ -17,14 +17,10 @@ public class EmployeeService {
                 Employee e2 = new HourlyEmployee();
                 return e2.calculatePay();
             case SALARIED:
-                return calculateSalariedPay();
+                Employee e3 = new SalariedEmployee();
+                return e3.calculatePay();
             default:
                 throw new InvalidEmployeeType();
         }
     }
-
-    private Payment calculateSalariedPay() {
-        return new Payment(100);
-    }
-
 }

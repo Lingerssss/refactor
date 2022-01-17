@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
     public Payment calculatePay(Employee e) throws InvalidEmployeeType {
-        Employee em = e.of(e.getType());
-        return em.calculatePay();
+        return e.of(e.getType()).calculatePay();
     }
 }

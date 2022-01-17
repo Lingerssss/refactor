@@ -11,6 +11,7 @@ public class EmployeeService {
     public Payment calculatePay(Employee e) throws InvalidEmployeeType {
         switch (e.getType()) {
             case COMMISSIONED:
+                Employee e1 = new CommissionedEmployee();
                 return calculateCommissionedPay();
             case HOURLY:
                 return calculateHourlyPay();

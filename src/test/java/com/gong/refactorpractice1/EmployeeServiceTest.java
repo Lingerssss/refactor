@@ -18,7 +18,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_1_when_the_Employee_type_is_Commissioned() {
         //given
-        Employee commissionedEmployee = new Employee(EmployeeType.COMMISSIONED);
+        Employee commissionedEmployee = Employee.of(EmployeeType.COMMISSIONED);
         //when
         int commissionedPay = employeeService.calculatePay(commissionedEmployee).getValue();
         //then
@@ -28,7 +28,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_10_when_the_Employee_type_is_hourly() {
         //given
-        Employee hourlyEmployee = new Employee(EmployeeType.HOURLY);
+        Employee hourlyEmployee = Employee.of(EmployeeType.HOURLY);
         //when
         int hourlyPay = employeeService.calculatePay(hourlyEmployee).getValue();
         //then
@@ -39,7 +39,7 @@ public class EmployeeServiceTest {
     @Test
     public void should_return_100_when_the_Employee_type_is_hourly() {
         //given
-        Employee salariedEmployee = new Employee(EmployeeType.SALARIED);
+        Employee salariedEmployee = Employee.of(EmployeeType.SALARIED);
         //when
         int salariedPay = employeeService.calculatePay(salariedEmployee).getValue();
         //then
@@ -48,9 +48,7 @@ public class EmployeeServiceTest {
 
     @Test
     public void should_throw_invalidEmployeeType_when_employee_type_is_invalid() {
-        //given
-        Employee noTypeEmployee = new Employee(EmployeeType.WEEKLY);
-        //when and then
-        assertThrows(InvalidEmployeeType.class,()->employeeService.calculatePay(noTypeEmployee));
+        //when and then,  given
+        assertThrows(InvalidEmployeeType.class, () -> Employee.of(EmployeeType.WEEKLY));
     }
 }

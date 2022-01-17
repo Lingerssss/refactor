@@ -9,25 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
     public Payment calculatePay(Employee e) throws InvalidEmployeeType {
-        Employee em = of(e);
+        Employee em = e.of(e.getType());
         return em.calculatePay();
-    }
-
-    private Employee of(Employee e) {
-        Employee em;
-        switch (e.getType()) {
-            case COMMISSIONED:
-                em = new CommissionedEmployee();
-                break;
-            case HOURLY:
-                em = new HourlyEmployee();
-                break;
-            case SALARIED:
-                em = new SalariedEmployee();
-                break;
-            default:
-                throw new InvalidEmployeeType();
-        }
-        return em;
     }
 }

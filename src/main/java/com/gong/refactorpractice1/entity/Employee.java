@@ -21,20 +21,15 @@ public class Employee {
     }
 
     public Employee of(EmployeeType type) {
-        Employee em;
         switch (type) {
             case COMMISSIONED:
-                em = new CommissionedEmployee();
-                break;
+                return new CommissionedEmployee();
             case HOURLY:
-                em = new HourlyEmployee();
-                break;
+                return new HourlyEmployee();
             case SALARIED:
-                em = new SalariedEmployee();
-                break;
+                return new SalariedEmployee();
             default:
                 throw new InvalidEmployeeType();
         }
-        return em;
     }
 }
